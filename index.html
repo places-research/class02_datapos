@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introdução ao R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=" Renata Oliveira" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x3097f7c7055427b9936e6dff5cf6a9f","expires":1}</script>
+    <script src="libs/himalaya/himalaya.js"></script>
+    <script src="libs/js-cookie/js.cookie.js"></script>
+    <link href="libs/editable/editable.css" rel="stylesheet" />
+    <script src="libs/editable/editable.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+    <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introdução ao R
+## Encontro Síncrono 02
+### <br></br>Renata Oliveira
+### 22/01/2021
+
+---
+
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://retaoliveira.github.io/places" target="_blank"&gt;https://retaoliveira.github.io/places&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Grupos de trabalho?
+
+.hand[
+.pull-left[
+.can-edit.key-group1[
+- member1
+- member2
+- member3
+- member4
+
+Problema:
+]
+]
+.pull-right[
+.can-edit.key-group2[
+- member1
+- member2
+- member3
+- member4
+- member5
+
+Problema:
+]
+]
+]
+---
+class: center, middle
+
+## Retrospecto
+
+---
+
+## Análise de dados com R
+
++ Vamos explorar conceitos, fundamentos e desenvolver habilidades de `análise de dados` para `suporte à tomada de decisão`. 
+
++ FOCO nas informações mais importantes sobre o comportamento de seus clientes, clientes potenciais, externalidades, bem estar organizacional dentre outras dimensões. 
+
++ Dados x Informações 
+
+---
+
+## Modelo conceitual da análise de dados
+
+![Modelo de Data Science](https://retaoliveira.github.io/relements/figures/dataR.png)
+
+---
+
+## Data Wrangling
+![Modelo de Data Science](https://retaoliveira.github.io/relements/figures/data_cowboy.png)
+---
+
+## Análise de dados serve para que?
+
++ Caracterização dos fenômenos e descrição dos problemas
+
++ Diagnóstico
+
++ Modelagem preditiva
+
++ Comunicação e processo decisório
+
+---
+
+
+
+## Kit de trabalho do curso
+
+.pull-left[
+### .gray[Organização do curso]
+.gray[
+- Teams
+- Sigaa
+- Site
+]
+]
+.pull-right[
+### .pink[Análise de Dados]
+- .pink[Construção de instrumentos de análise]
+  - .pink[R]
+  - .pink[RStudio]
+  - .pink[tidyverse]
+  - .pink[R Markdown]
+- .gray[Controle de versão e colaboração:]
+  - .gray[Git]
+  - .gray[GitHub]
+]
+
+
+---
+
+class: middle
+
+.center[
+## .pink[Sairemos deste curso com mais perguntas do que respostas! ]
+]
+
+---
+class: center, middle
+
+## O que é o R?
+
+---
+
+## Conhecendo o R
+
+### Interface e funcionalidades
+
+Para uso do R no ambiente RStudio, é inicialmente necessário entender o seu funcionamento. O R é uma linguagem de programação, em plataforma open source, desenvolvida para análise de dados. SEJAM BEM VINDOS!
+
+&lt;img src="https://retaoliveira.github.io/relements/figures/welcome_to_rstats_twitter.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Conhecendo o R
+### Interface e funcionalidades
+
+Em um primeiro momento, o conjunto R + RStudio parece pouco amigável, mas com o tempo, é impossível não apaixonar-se pelas infinitas possibilidades que temos ao utilizar o R.
+
+&lt;img src="https://retaoliveira.github.io/relements/figures/r_first_then.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Conhecendo o R
+### Interface e funcionalidades
+
+A comunidade do R é bastante ampla e colaborativa. Assim: BUSQUE AJUDA!!!!!
+
+&lt;img src="https://retaoliveira.github.io/relements/figures/code_hero_rstats.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Variáveis, funções e *packages* 
+
+Sua estrutura fundamenta-se em uma grande variedade de ferramentas quantitativas, organizadas por meio de **objetos**, **funções** e **packages**. A instalação `base` do R já contempla uma série de funções e *packages*. *Packages* adicionais podem ser instalados quando for necessário ou interessante. Para instalação de *packages*, utiliza-se a função `install.packages()`.
+
+---
+
+class: center, middle
+
+## Novos conceitos
+
+---
+
+## Reprodutibilidade
+
+.question[
+O que significa ser "reprodutível"?
+]
+
+--
+
+Objetivos no curto prazo:
+
+- As tabelas e figuras são reprodutíveis a partir do código e dos dados?
+- O código realmente faz o que você acha que faz?
+- Além do que foi feito, é claro *por que* foi feito? 
+
+Objetivos no longo prazo:
+
+- O código pode ser usado para outros dados?
+- Você pode estender o código para fazer outras coisas?
+
+---
+
+## O que é Markdown?
+
+Segundo o criador da linguagem:
+
+&gt; Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).
+&gt;
+&gt; John Gruber
+
+---
+
+## Rmarkdown
+
+.pull-left[
+.center[.large[
+[rmarkdown.rstudio.com](https://rmarkdown.rstudio.com/)
+]]
+
+.midi[
+- **rmarkdown** e os vários pacotes que o suportam permitem aos usuários R escrever seu código e texto em documentos computacionais reprodutíveis
+
+- Geralmente nos referiremos aos documentos R Markdown (com extensão `.Rmd'), por exemplo *"Faça isso em seu documento R Markdown "* e raramente discutiremos o carregamento do pacote rmarkdown
+]
+]
+.pull-right[
+&lt;img src="img/rmarkdown.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+### Tour: R e RStudio
+
+&lt;img src="img/tour-r-rstudio.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## RMarkdown
+
+.panelset[
+.panel[.panel-name[O que é?]
+
+Vou colocar aqui algumas informações-chave sobre a construção geral de informações a partir do uso do RMarkdown. Entretanto, informações adicionais podem ser obtidas de maneira detalhada no site: 
+
++ [Documentos dinâmicos no R by Fernando Mayer &amp; Walmes Zeviani](http://cursos.leg.ufpr.br/prr/capDocDin.html)
+]
+
+.panel[.panel-name[Organização]
+### Seções e subseções
+
+Para demarcar seções e subseções, utilize os `hashtags`. 
+
+### Listas e ordenação
+
+Basta enumerar:
+
+1. Item 1
+2. Item 2
+
+]
+
+.panel[.panel-name[Imagens]
+
+![Figura 1: RMarkdown](https://retaoliveira.github.io/relements/figures/allison_horst/rmarkdown_rockstar.png)
+
+]
+
+.panel[.panel-name[Chunks]
+
+
+```r
+x &lt;- rnorm(30)
+x
+```
+
+```
+##  [1] -1.20706575  0.27742924  1.08444118 -2.34569770  0.42912469
+##  [6]  0.50605589 -0.57473996 -0.54663186 -0.56445200 -0.89003783
+## [11] -0.47719270 -0.99838644 -0.77625389  0.06445882  0.95949406
+## [16] -0.11028549 -0.51100951 -0.91119542 -0.83717168  2.41583518
+## [21]  0.13408822 -0.49068590 -0.44054787  0.45958944 -0.69372025
+## [26] -1.44820491  0.57475572 -1.02365572 -0.01513830 -0.93594860
+```
+]
+
+.panel[.panel-name[Mais chunks]
+
+```r
+plot(x)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-9-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
+]
+
+---
+
+.panelset[
+
+.panel[.panel-name[Visualização]
+
+Também podemos fazer um histograma dessa variável simulada
+
+
+```r
+hist(x)
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.panel[.panel-name[YAML]
+
+#### `YAML` (Yet Another Markup Language)
+
+No `YAML`, os dados são escritos em forma de lista aninhada. Os metadados em `YAML` são colocados sempre no início de um documento, e são delimitados por `---`. 
+]
+
+.panel[.panel-name[Gerando...]
+
+`knitr`
+
+]
+
+.panel[.panel-name[WOW!]
+
+Na [galeria do RStudio](https://rmarkdown.rstudio.com/gallery.html) diferentes estruturas de informação produzida por meio de `RMarkdown` podem ser encontradas! 
+
+]
+
+.panel[.panel-name[RPubs]
+
+
+No RStudio, crie um novo documento `R Markdown` escolhendo `Arquivo | Novo | R Markdown`.
+Clique no botão `Knit HTML` na barra de ferramentas do doc para visualizar seu documento.
+Na janela de pré-visualização, clique no botão `Publicar`.
+
+É um processo em duas etapas. Na primeira etapa, você precisa registrar uma conta `RPubs` ou fazer o login, caso já tenha uma. Você escreve o título de seu documento e dá uma breve descrição (para que outros possam encontrar seu trabalho a partir da busca). 
+
+Uma vez terminado e clicando no botão `Continue` na parte inferior, você irá diretamente para o artigo publicado. 
+
+Você pode optar por atualizar seu conteúdo.
+
+
+]
+]
+
+
+---
+
+## Uma pequena lista (por enquanto) de funções essenciais  
+
+- As funções são (na maioria das vezes) verbos, seguidos pelo objeto a que serão aplicados entre parênteses:
+
+
+```r
+do_this(to_this)
+do_that(to_this, to_that, with_those)
+```
+
+--
+
+- Os pacotes são instalados com a função `install.packages` e carregados com a função `library`, uma vez por sessão:
+
+
+```r
+install.packages("package_name")
+library(package_name)
+```
+
+---
+
+## Funções essenciais  (continuação)
+
+- As colunas (variáveis) em dataframes são acessadas com `$`:
+
+
+```r
+dataframe$var_name
+```
+
+--
+
+- A documentação do objeto pode ser acessada com `?`
+
+
+```r
+?mean
+```
+
+---
+
+## Ambiente de trabalho do Rmarkdown
+
+.tip[
+O ambiente de seu documento R Markdown é separado do Console!
+]
+
+Lembre-se disso e espere que ele _o morda_ algumas vezes enquanto você aprende a trabalhar 
+com R Markdown!
+
+---
+
+## Ambiente de trabalho do Rmarkdown
+
+.pull-left[
+Primeiro, rode em seu console:
+
+
+
+```r
+x &lt;- 2
+x * 3
+```
+
+
+.question[
+Tudo parece bem, eh?
+]
+]
+
+--
+
+.pull-right[
+Digite então o código em um chunk no seu documento Rmarkdown
+
+
+
+```r
+x * 3
+```
+
+
+.question[
+O que aconteceu? Como fazer para rodá-lo?
+]
+]
+
+.tip[
+Dica: `Ctrl + Alt + i`
+]
+
+
+---
+
+## Como usaremos o R Markdown?
+
+- Cada tarefa / relatório / projeto / etc. é um documento R Markdown
+- Você sempre terá um modelo de documento R Markdown para começar a atividade ou uma orientação quanto ao `template`
+
+---
+
+## O que são os hexágonos?
+
+&lt;img src="img/hex-australia.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+Mitchell O'Hara-Wild, [useR! 2018 feature wall](https://www.mitchelloharawild.com/blog/user-2018-feature-wall/)
+]
+
+---
+
+## Git e GitHub
+
+.pull-left[
+&lt;img src="img/git-logo.png" width="25%" style="display: block; margin: auto;" /&gt;
+- Git é um sistema de controle de versão -- como os recursos "Track Changes" do Microsoft Word, bombado!
+- Não é o único sistema de controle de versão, mas é um sistema muito popular.
+]
+.pull-right[
+&lt;img src="img/github-logo.png" width="25%" style="display: block; margin: auto;" /&gt;
+- GitHub é a casa para seus projetos baseados em Git na internet -- como DropBox, mas muito, muito melhor
+
+- Não utilizaremos o GitHub como plataforma para hospedagem e colaboração na web, mas aprenderemos algumas funcionalidades. 
+]
+
+---
+
+## Versioning
+
+&lt;img src="img/lego-steps.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Versioning 
+
+### com mensagens humanas
+
+&lt;img src="img/lego-steps-commit-messages.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Por que precisamos de controle de versão?
+
+&lt;img src="img/phd_comics_vc.gif" width="35%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Como usaremos Git e GitHub?
+
+&lt;img src="img/whole-game-01.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+## Como usaremos Git e GitHub?
+
+&lt;img src="img/whole-game-02.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Como usaremos Git e GitHub?
+
+&lt;img src="img/whole-game-03.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Como usaremos Git e GitHub?
+
+&lt;img src="img/whole-game-04.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Dicas: Git e GitHub
+
+- 99% do tempo você usará o git para `add`, `commit`, `push` e `pull`.
+
+--
+- Uma excelente fonte para aprender a trabalhar com git e R: [happygitwitwithr.com](http://happygitwithr.com/). 
+
+---
+
+
+## Encaminhamentos:
+
+1. Tutorial de R - Swirl
+2. Atividades no SIGAA
+3. Projeto integrador
+
+&lt;br&gt;&lt;/br&gt;
+
+.center[
+## ENGAJAMENTO!
+]
+
+---
+class: inverse, center, middle
+
+# DÚVIDAS?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"highlightStyle": "solarized-light",
+"countIncrementalSlides": false,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
